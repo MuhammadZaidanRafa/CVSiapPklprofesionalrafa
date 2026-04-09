@@ -3,120 +3,353 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV PKL - Muhammad Zaidan Rafa</title>
+    <title>CV PKL - Muhammad Zaidan Rafa | Smart CV</title>
 
     <!-- FONT MODERN -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FONT AWESOME ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 15px;
-            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 900px;
-            margin: auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            transition: 0.3s;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            overflow: hidden;
+            position: relative;
+            animation: slideIn 0.8s ease-out;
         }
 
-        .container:hover {
-            transform: translateY(-5px);
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             text-align: center;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 20px;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .header img {
-            width: 120px;
-            height: 120px;
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.3);
+            margin: 0 auto 20px;
             object-fit: cover;
-            border: 4px solid #3498db;
-            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            border-color: rgba(255,255,255,0.6);
         }
 
         .header h1 {
-            margin: 0;
-            color: #2c3e50;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 2;
         }
 
         .header p {
-            margin: 5px 0;
-            color: #666;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
         }
 
         .section {
-            margin-top: 25px;
-            padding-left: 12px;
-            border-left: 4px solid #3498db;
+            padding: 35px 30px;
+            border-bottom: 1px solid #eee;
+            position: relative;
+        }
+
+        .section:last-child {
+            border-bottom: none;
         }
 
         .section h2 {
-            margin-bottom: 10px;
-            color: #2c3e50;
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
         }
 
-        .info {
-            line-height: 1.8;
+        .section h2 i {
+            color: #667eea;
+            width: 25px;
         }
 
-        ul {
-            padding-left: 20px;
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
         }
 
-        li {
-            margin-bottom: 10px;
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+            border-radius: 12px;
+            transition: all 0.3s ease;
         }
 
-        a {
-            color: #3498db;
+        .info-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .info-item i {
+            color: #667eea;
+            font-size: 1.2rem;
+            width: 24px;
+        }
+
+        .profile-text {
+            line-height: 1.7;
+            color: #555;
+            text-align: justify;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-item {
+            padding: 15px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3);
+        }
+
+        .portfolio-link {
+            display: block;
+            color: #333;
             text-decoration: none;
-            word-break: break-all;
+            padding: 25px;
         }
 
-        a:hover {
-            text-decoration: underline;
+        .portfolio-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
         }
 
-        .contact a {
-            display: inline-block;
-            margin-top: 5px;
+        .portfolio-link:hover .portfolio-title {
+            color: #667eea;
+        }
+
+        .btn-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin: 5px;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-contact:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.6);
         }
 
         .footer {
+            background: #333;
+            color: white;
             text-align: center;
-            margin-top: 25px;
-            font-size: 12px;
-            color: #aaa;
+            padding: 20px;
+            font-size: 0.9rem;
         }
 
-        /* RESPONSIVE */
+        /* DOWNLOAD BUTTON */
+        .download-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
+        }
+
+        /* RESPONSIVE DESIGN */
         @media (max-width: 768px) {
-            .container {
-                padding: 20px;
+            body {
+                padding: 10px;
             }
 
-            .header img {
+            .container {
+                margin: 10px;
+                border-radius: 20px;
+            }
+
+            .header {
+                padding: 30px 15px;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .profile-img {
+                width: 110px;
+                height: 110px;
+            }
+
+            .section {
+                padding: 25px 20px;
+            }
+
+            .section h2 {
+                font-size: 1.3rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .download-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .profile-img {
                 width: 90px;
                 height: 90px;
             }
 
-            .header h1 {
-                font-size: 20px;
-            }
-
             .section {
-                margin-top: 20px;
+                padding: 20px 15px;
+            }
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .download-btn {
+                display: none;
             }
         }
     </style>
@@ -124,94 +357,181 @@
 <body>
 
 <div class="container">
-
+    <!-- HEADER -->
     <div class="header">
-        <img src="Rafa SMP.jpeg" alt="Foto Profil">
+        <img src="Rafa SMP.jpeg" alt="Muhammad Zaidan Rafa" class="profile-img">
         <h1>Muhammad Zaidan Rafa</h1>
-        <p>Siswa SMK Negeri 1 Sanden | Jurusan RPL</p>
+        <p><i class="fas fa-graduation-cap"></i> Siswa SMK Negeri 1 Sanden | Jurusan RPL</p>
     </div>
 
+    <!-- DATA DIRI -->
     <div class="section">
-        <h2>Data Diri</h2>
-        <p class="info contact">
-            <strong>Nama:</strong> Muhammad Zaidan Rafa<br>
-            <strong>TTL:</strong> Bantul, 17 Desember 2008<br>
-            <strong>Alamat:</strong> Ngimbang, Pendowoharjo, Sewon, Bantul<br>
-
-            <strong>No HP:</strong><br>
-            <a href="tel:081326831712">📱 081326831712</a><br>
-
-            <strong>Email:</strong><br>
-            <a href="mailto:rafabagos75@gmail.com">📧 rafabagos75@gmail.com</a>
-        </p>
+        <h2><i class="fas fa-user"></i> Data Diri</h2>
+        <div class="info-grid">
+            <div class="info-item">
+                <i class="fas fa-id-card"></i>
+                <div>
+                    <strong>Nama Lengkap:</strong><br>
+                    Muhammad Zaidan Rafa
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-calendar-day"></i>
+                <div>
+                    <strong>TTL:</strong><br>
+                    Bantul, 17 Desember 2008
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <strong>Alamat:</strong><br>
+                    Ngimbang, Pendowoharjo, Sewon, Bantul
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                    <strong>No HP:</strong><br>
+                    <a href="tel:081326831712" class="btn-contact">
+                        <i class="fas fa-phone"></i> 081326831712
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <a href="mailto:rafabagos75@gmail.com" class="btn-contact">
+                <i class="fas fa-envelope"></i> rafabagos75@gmail.com
+            </a>
+        </div>
     </div>
 
+    <!-- PROFIL -->
     <div class="section">
-        <h2>Profil</h2>
-        <p>
-            Saya adalah siswa SMK jurusan Rekayasa Perangkat Lunak yang memiliki minat dalam bidang teknologi, 
-            khususnya pembuatan website dan pengolahan database. Saya memiliki semangat belajar tinggi, 
+        <h2><i class="fas fa-user-tie"></i> Profil</h2>
+        <p class="profile-text">
+            Siswa SMK jurusan Rekayasa Perangkat Lunak yang <strong>berminat tinggi</strong> dalam bidang teknologi, 
+            khususnya pembuatan website dan pengolahan database. Memiliki <strong>semangat belajar tinggi</strong>, 
             disiplin, dan siap berkontribusi dalam kegiatan PKL untuk mengembangkan keterampilan di dunia industri.
         </p>
     </div>
 
+    <!-- PENDIDIKAN -->
     <div class="section">
-        <h2>Pendidikan</h2>
-        <ul>
-            <li>SMK Negeri 1 Sanden (RPL) - 2024 - Sekarang</li>
-            <li>SMP Muhammadiyah Sewon - 2021 - 2024</li>
-        </ul>
+        <h2><i class="fas fa-school"></i> Pendidikan</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <h3>SMK Negeri 1 Sanden (RPL)</h3>
+                <p>2024 - Sekarang</p>
+            </div>
+            <div class="skill-item">
+                <h3>SMP Muhammadiyah Sewon</h3>
+                <p>2021 - 2024</p>
+            </div>
+        </div>
     </div>
 
+    <!-- KEMAMPUAN -->
     <div class="section">
-        <h2>Kemampuan</h2>
-        <ul>
-            <li>HTML & CSS Dasar</li>
-            <li>SQL (MariaDB/MySQL)</li>
-            <li>Dasar Pemrograman</li>
-        </ul>
+        <h2><i class="fas fa-code"></i> Kemampuan</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <h3><i class="fab fa-html5"></i> HTML & CSS</h3>
+                <p>Dasar - Menengah</p>
+            </div>
+            <div class="skill-item">
+                <h3><i class="fas fa-database"></i> SQL (MariaDB/MySQL)</h3>
+                <p>Dasar</p>
+            </div>
+            <div class="skill-item">
+                <h3><i class="fas fa-laptop-code"></i> Pemrograman Dasar</h3>
+                <p>Algoritma & Logika</p>
+            </div>
+        </div>
     </div>
 
+    <!-- PENGALAMAN -->
     <div class="section">
-        <h2>Pengalaman</h2>
-        <ul>
-            <li>Membuat database sederhana menggunakan MariaDB</li>
-            <li>Membuat website sederhana</li>
-            <li>Membuat game sederhana</li>
-        </ul>
+        <h2><i class="fas fa-briefcase"></i> Pengalaman</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <h3>Database MariaDB</h3>
+                <p>Membuat database sederhana untuk sistem manajemen</p>
+            </div>
+            <div class="skill-item">
+                <h3>Website Sederhana</h3>
+                <p>Responsive web design dengan HTML & CSS</p>
+            </div>
+            <div class="skill-item">
+                <h3>Game Sederhana</h3>
+                <p>Game interaktif berbasis web</p>
+            </div>
+        </div>
     </div>
 
+    <!-- PORTOFOLIO -->
     <div class="section">
-        <h2>Portofolio</h2>
-        <ul>
-            <li>
-                <strong>Game Dukun Edan</strong><br>
-                <a href="https://wonderful-pie-b39dba.netlify.app/" target="_blank">
-                    🔗 Lihat Proyek
-                </a>
-            </li>
-            <li>
-                <strong>Game Block Puzzle Touch</strong><br>
-                <a href="https://muhammadzaidanrafa.github.io/block/" target="_blank">
-                    🔗 Lihat Proyek
-                </a>
-            </li>
-        </ul>
+        <h2><i class="fas fa-folder-open"></i> Portofolio</h2>
+        <div class="portfolio-grid">
+            <a href="https://wonderful-pie-b39dba.netlify.app/" target="_blank" class="portfolio-item">
+                <div class="portfolio-link">
+                    <h3 class="portfolio-title">🎮 Game Dukun Edan</h3>
+                    <p>Game interaktif yang menyenangkan dan edukatif</p>
+                    <i class="fas fa-external-link-alt" style="float: right; margin-top: 10px;"></i>
+                </div>
+            </a>
+            <a href="https://muhammadzaidanrafa.github.io/block/" target="_blank" class="portfolio-item">
+                <div class="portfolio-link">
+                    <h3 class="portfolio-title">🧩 Game Block Puzzle Touch</h3>
+                    <p>Game puzzle yang challenging dan responsive</p>
+                    <i class="fas fa-external-link-alt" style="float: right; margin-top: 10px;"></i>
+                </div>
+            </a>
+        </div>
     </div>
 
+    <!-- TUJUAN PKL -->
     <div class="section">
-        <h2>Tujuan PKL</h2>
-        <p>
-            Ingin mendapatkan pengalaman kerja nyata, meningkatkan keterampilan di bidang IT, 
-            serta belajar bekerja dalam tim dan lingkungan profesional.
-        </p>
+        <h2><i class="fas fa-bullseye"></i> Tujuan PKL</h2>
+        <div class="profile-text">
+            <ul style="line-height: 2; color: #555;">
+                <li>✅ Mendapatkan pengalaman kerja nyata di industri IT</li>
+                <li>✅ Meningkatkan keterampilan teknis dan soft skills</li>
+                <li>✅ Belajar bekerja dalam tim profesional</li>
+                <li>✅ Mengembangkan portofolio proyek nyata</li>
+            </ul>
+        </div>
     </div>
 
     <div class="footer">
-        © 2026 - CV PKL Rafa
+        <p><i class="fas fa-heart"></i> © 2025 Muhammad Zaidan Rafa | Siap PKL & Berkontribusi</p>
     </div>
-
 </div>
+
+<!-- DOWNLOAD BUTTON -->
+<button class="download-btn" onclick="window.print()" title="Download PDF / Print CV">
+    <i class="fas fa-download"></i>
+</button>
+
+<script>
+    // Smooth scroll dan animasi
+    window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+            }
+        });
+    });
+
+    // PWA Ready - Add to Home Screen
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+        deferredPrompt = e;
+    });
+</script>
 
 </body>
 </html>
